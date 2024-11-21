@@ -1,8 +1,7 @@
-import { BRAND } from "@/types/brand";
 import Image from "next/image";
 import DropdownDefault from "../Dropdowns/DropdownDefault";
 
-const brandData: BRAND[] = [
+const brandData: any[] = [
   {
     logo: "/images/brand/brand-01.svg",
     name: "Google",
@@ -48,7 +47,7 @@ const brandData: BRAND[] = [
 const TableFour: React.FC = () => {
   return (
     <div className="col-span-12 xl:col-span-7">
-      <div className="dark:bg-background rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark sm:px-7.5 xl:pb-1">
+      <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-background sm:px-7.5 xl:pb-1">
         <div className="mb-6 flex justify-between">
           <div>
             <h4 className="text-title-sm2 font-bold text-black dark:text-white">

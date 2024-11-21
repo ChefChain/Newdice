@@ -1,6 +1,4 @@
-import { Package } from "@/types/package";
-
-const packageData: Package[] = [
+const packageData: any[] = [
   {
     name: "Free package",
     price: 0.0,
@@ -29,7 +27,7 @@ const packageData: Package[] = [
 
 const TableThree = () => {
   return (
-    <div className="dark:bg-background rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark sm:px-7.5 xl:pb-1">
+    <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-background sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>

@@ -1,7 +1,6 @@
-import { BRAND } from "@/types/brand";
 import Image from "next/image";
 
-const brandData: BRAND[] = [
+const brandData: any[] = [
   {
     logo: "/images/brand/brand-01.svg",
     name: "Google",
@@ -46,7 +45,7 @@ const brandData: BRAND[] = [
 
 const TableOne = () => {
   return (
-    <div className="dark:bg-background rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark sm:px-7.5 xl:pb-1">
+    <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-background sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         Top Channels
       </h4>

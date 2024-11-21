@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { Product } from "@/types/product";
 
-const productData: Product[] = [
+const productData: any[] = [
   {
     image: "/images/product/product-01.png",
     name: "Apple Watch Series 7",
@@ -38,7 +37,7 @@ const productData: Product[] = [
 
 const TableTwo = () => {
   return (
-    <div className="dark:bg-background rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark">
+    <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-background">
       <div className="px-4 py-6 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold text-black dark:text-white">
           Top Products
