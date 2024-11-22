@@ -1,5 +1,4 @@
 {
     "version": 2,
-    "buildCommand": "npm install --force && npm run build",
-    "framework": "nextjs"
+    "buildCommand": "npm run build"
 }
