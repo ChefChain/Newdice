@@ -10,7 +10,7 @@ export default function DefaultLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <div className="flex">
+    <div>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className="relative flex flex-1 flex-col xl:ml-72.5">
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

@@ -26,6 +26,9 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        text: {
+          secondary: "#9fa6ad",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -61,6 +64,7 @@ const config: Config = {
         border: {
           DEFAULT: "hsl(var(--border))",
           card: "hsl(var(--card-border))",
+          card2: "#32383e",
         },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

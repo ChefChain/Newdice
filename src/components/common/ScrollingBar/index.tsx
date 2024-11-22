@@ -1,6 +1,7 @@
 "use client";
 import clsx from "clsx";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const dicePaths: any = {
   1: <circle cx="10" cy="10" r="1.5" fill="currentColor" />,
@@ -71,7 +72,6 @@ function DiceIcon({ value = 1, color = "currentColor" }) {
 }
 
 function ScrollingBar() {
-  const scrollingBarRef = useRef(null);
   const [winners, setWinners] = useState<any[]>([
     {
       name: "JerinMoo456",
@@ -105,31 +105,23 @@ function ScrollingBar() {
   useEffect(() => {
     if (newWinner) {
       setWinners((prev: any) => {
-        const updatedBets = [...prev, newWinner];
-        if (prev.length > 20) {
-          updatedBets.shift();
-        }
-        return updatedBets;
+        return [...prev, newWinner];
       });
       setNewWinner(null);
     }
   }, [newWinner]);
 
-  // scroll effect, commented it due to bugs
-  useEffect(() => {
-    const scrollingBar = document.querySelector(".scrolling-bar");
-    if (scrollingBar) {
-      scrollingBar.scrollTo({
-        left: scrollingBar.scrollWidth,
-        behavior: "smooth",
-      });
-    }
-  }, [winners]);
-
   return (
-    <div className="scrolling-bar m-2" ref={scrollingBarRef}>
+    <div className="feed ">
       {winners?.map((bet) => (
-        <div key={bet.name} className="bet">
+        <motion.div
+          key={bet.name}
+          className="feed-item"
+          initial={{ opacity: 0, x: 400 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -400 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="flex items-center gap-2">
             <span className="flex-1">{bet.name}</span>
             <span className="flex items-center gap-2">
@@ -148,7 +140,7 @@ function ScrollingBar() {
               ))}
             </span>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
