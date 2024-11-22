@@ -5,6 +5,8 @@ import Image from "next/image";
 import ClickOutside from "@/components/ClickOutside";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
+import { Card, CardContent } from "../ui/card";
+import AnimatedNumbers from "react-animated-numbers";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,18 +24,28 @@ const DropdownUser = () => {
         className="flex items-center gap-4"
         href="#"
       >
-        <span className="h-12 w-12 rounded-full">
-          <Image
-            width={112}
-            height={112}
-            src={"/images/user/user-01.png"}
-            style={{
-              width: "auto",
-              height: "auto",
-            }}
-            alt="User"
-          />
-        </span>
+        <Card className="rounded-[8px] border-primary-success">
+          <CardContent className="px-4 py-3 text-sm">
+            <div className="flex items-center gap-2">
+              <Image
+                src={"/assets/secure_icon.svg"}
+                width={12}
+                height={12}
+                alt="Secure"
+              />
+              <span className="text-primary-success ">Account:</span>
+              <span>$</span>
+              <AnimatedNumbers
+                includeComma
+                transitions={(index) => ({
+                  type: "spring",
+                  duration: index + 0.3,
+                })}
+                animateToNumber={354}
+              />
+            </div>
+          </CardContent>
+        </Card>
 
         <svg
           className="hidden fill-current sm:block"

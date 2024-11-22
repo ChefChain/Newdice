@@ -90,7 +90,7 @@ const Header = (props: {
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
-          <Card className="rounded-[8px] border-primary-success">
+          {/* <Card className="rounded-[8px] border-primary-success">
             <CardContent className="px-4 py-3 text-sm">
               <div className="flex items-center gap-2">
                 <Image
@@ -100,10 +100,10 @@ const Header = (props: {
                   alt="Secure"
                 />
                 <span className="text-primary-success ">Wallet:</span>
-                <span>354$</span>
+                <span>$354</span>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
           <ul className="flex items-center gap-2 2xsm:gap-4">
             {/* <!-- Notification Menu Area --> */}
             {/* <DropdownNotification /> */}

@@ -25,6 +25,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import AnimatedNumbers from "react-animated-numbers";
 
 type Props = {};
 
@@ -140,10 +141,30 @@ function DiceIcon({
 }
 
 const buttonState = [
-  { state: 1, text: "Place Bet", color: "rgba(221 231 238 / 0.08)" },
-  { state: 2, text: "Confirm Bet", color: "#0f1012" },
-  { state: 3, text: "Bet Confirmed", color: "primary-success" },
-  { state: 4, text: "No More Bets", color: "primary-error" },
+  {
+    state: 1,
+    text: "Place Bet",
+    color: "rgba(221 231 238 / 0.08)",
+    announcement: "Place your bets now",
+  },
+  {
+    state: 2,
+    text: "Confirm Bet",
+    color: "#0f1012",
+    announcement: "Click the button below to confirm",
+  },
+  {
+    state: 3,
+    text: "Bet Confirmed",
+    color: "primary-success",
+    announcement: "Your bet has been confirmed.",
+  },
+  {
+    state: 4,
+    text: "No More Bets",
+    color: "primary-error",
+    announcement: "Betting is over. Good Luck!",
+  },
 ];
 
 function DigitalWallet({}: Props) {
@@ -152,6 +173,7 @@ function DigitalWallet({}: Props) {
     state: 1,
     text: "Place Bet",
     color: "rgba(221 231 238 / 0.08)",
+    announcement: "Place your bets now",
   });
 
   const handleDiceClick = (index: number) => {
@@ -166,19 +188,35 @@ function DigitalWallet({}: Props) {
   };
 
   return (
-    <Card className="col-span-12 min-h-[350px] lg:col-span-5">
+    <Card className="col-span-12 min-h-[350px] lg:col-span-6">
       {/* Announcement bar */}
-      <Card className="flex gap-2 rounded-bl-none rounded-br-none !border-l-0 !border-r-0 !border-t-0 border-b-[1px]">
-        <div className="flex flex-1 items-center px-4 py-2">
-          <span className="text-primary-success ">
-            This is the announcement bar
+      <Card className="flex gap-2 rounded-bl-none rounded-br-none !border-l-0 !border-r-0 !border-t-0 border-b-[1px] bg-[#121314]">
+        <div
+          key={activeButton.announcement}
+          className=" flex flex-1 items-center px-4 py-2 "
+        >
+          <span
+            className={clsx(
+              "flex animate-blinkButton items-center justify-center gap-2 font-semibold",
+              {
+                "text-primary-error": activeButton.state === 4,
+                "text-primary-success ": activeButton.state !== 4,
+              },
+            )}
+          >
+            {activeButton.announcement}
           </span>
         </div>
-        <div className="rounded-tr-[20px] border-l-[1px] border-border-card bg-[#121314] px-1 py-1">
+        <div className="rounded-tr-[20px] border-l-[1px] border-border-card  px-1 py-1">
           <div className="flex flex-col items-center justify-center rounded-tr-[17px]  px-3 py-0.5 font-thin">
             <span className="text-xs">WIN/LOSS</span>
             <div className="flex items-center gap-1 text-primary-success ">
-              <TrendingUpIcon strokeWidth={1} />
+              <Image
+                src="/assets/growth.gif"
+                width={25}
+                height={25}
+                alt="btc"
+              />
               <span>34.1%</span>
             </div>
           </div>
@@ -186,10 +224,10 @@ function DigitalWallet({}: Props) {
       </Card>
 
       {/* Wallet Info */}
-      <div className="flex w-full items-start p-4">
+      <div className="flex w-full items-start p-4 pt-5">
         <div className="flex flex-1 flex-wrap gap-2">
           <Card className="flex min-h-[40px] items-center gap-1 rounded-full border border-primary-success px-4 py-3">
-            <span className="pl-2 text-xs font-medium leading-none text-primary-success">
+            <span className="pl-2 pr-1 text-sm font-bold leading-none text-primary-success">
               TABLE:
             </span>
             <Select defaultValue="10">
@@ -198,34 +236,61 @@ function DigitalWallet({}: Props) {
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectItem value="5">$5</SelectItem>
-                  <SelectItem value="10">$10</SelectItem>
-                  <SelectItem value="25">$25</SelectItem>
-                  <SelectItem value="50">$50</SelectItem>
-                  <SelectItem value="100">$100</SelectItem>
-                  <SelectItem value="200">$200</SelectItem>
+                  <SelectItem value="5" className="font-bold">
+                    <span className="mr-[2px]">$</span>5
+                  </SelectItem>
+                  <SelectItem value="10">
+                    <span className="mr-[2px]">$</span>10
+                  </SelectItem>
+                  <SelectItem value="25">
+                    <span className="mr-[2px]">$</span>25
+                  </SelectItem>
+                  <SelectItem value="50">
+                    <span className="mr-[2px]">$</span>50
+                  </SelectItem>
+                  <SelectItem value="100">
+                    <span className="mr-[2px]">$</span>100
+                  </SelectItem>
+                  <SelectItem value="200">
+                    <span className="mr-[2px]">$</span>200
+                  </SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
           </Card>
           <Card className="flex min-h-[46px] items-center gap-2 rounded-full border border-primary-success px-4 py-3">
-            <span className="text-xs font-medium leading-none text-primary-success">
+            <span className="text-sm font-bold leading-none text-primary-success">
               POT:
             </span>
-            <span className="text-xs leading-none">777$</span>
-            {/* <Image src="assets/logo-btc.svg" width={25} height={25} alt="btc" /> */}
+            <span className="flex gap-[2px] text-sm leading-none">
+              <span>$</span>
+              <AnimatedNumbers
+                includeComma
+                transitions={(index) => ({
+                  type: "spring",
+                  duration: index + 0.3,
+                })}
+                animateToNumber={777}
+              />
+            </span>
           </Card>
-          <Card className="flex min-h-[46px] items-center gap-2 rounded-full border border-primary-success px-4 py-3">
-            <span className="text-xs font-medium leading-none text-primary-success">
+          <Card className="animation-pulse flex min-h-[46px] items-center gap-2 rounded-full border border-primary-success px-4 py-3">
+            <span className="text-sm font-bold leading-none text-primary-success">
               PROG:
             </span>
-            <span className="text-xs">12,777$</span>
-            {/* <Image src="assets/logo-btc.svg" width={25} height={25} alt="btc" /> */}
+            <span className="flex gap-[2px] text-sm">
+              <span>$</span>
+              <AnimatedNumbers
+                includeComma
+                transitions={(index) => ({
+                  type: "spring",
+                  duration: index + 0.3,
+                })}
+                animateToNumber={12777}
+              />
+            </span>
           </Card>
         </div>
-        {/* <Button variant="ghost" size="icon">
-          <Ellipsis />
-        </Button> */}
       </div>
 
       {/* Chart */}
@@ -248,7 +313,6 @@ function DigitalWallet({}: Props) {
             <Card
               key={key}
               className="flex h-[70px] select-none items-center justify-center rounded-md bg-[#121314] p-1.5 md:h-[100px] md:p-2.5 lg:h-[80px] xl:h-[100px]"
-              //   className="flex h-[70px] w-[70px] min-w-[70px] select-none items-center justify-center rounded-md bg-transparent p-1.5 md:h-[100px] md:w-[100px] md:min-w-[100px] md:p-2.5 lg:h-[80px] lg:w-[80px] lg:min-w-[80px] xl:h-[100px]  xl:w-[100px] xl:min-w-[100px]"
             >
               <div
                 className={clsx(
@@ -273,9 +337,16 @@ function DigitalWallet({}: Props) {
       {/* Currency and Trend Info */}
       <div className="m-4 mt-8 flex items-stretch gap-2">
         <Card className="flex items-center justify-center rounded-[8px] bg-transparent p-2">
-          <div className="flex flex-1 flex-col items-center justify-center gap-0.5 rounded-[6px] bg-secondary px-5 py-1">
+          <div className="flex flex-1 flex-col items-center justify-center gap-0.5 rounded-[6px] bg-[#121314] px-5 py-1">
             <span className="text-3xl font-light leading-none tracking-[1px]">
-              43
+              <AnimatedNumbers
+                includeComma
+                transitions={(index) => ({
+                  type: "spring",
+                  duration: index + 0.3,
+                })}
+                animateToNumber={43}
+              />
             </span>
             <span className="text-[0.6rem] font-thin leading-none tracking-[1px]">
               PLAYERS
@@ -283,6 +354,7 @@ function DigitalWallet({}: Props) {
           </div>
         </Card>
         <Card
+          key={activeButton.text}
           className={clsx("flex-1 items-stretch rounded-[8px] p-2 ", {
             "animate-blinkBorderSuccess border-[1px] border-primary-success":
               activeButton.state === 3,
@@ -306,10 +378,11 @@ function DigitalWallet({}: Props) {
             <Button
               variant="secondary"
               className={clsx(
-                "h-full flex-1 rounded-[8px] p-2 text-sm font-semibold uppercase leading-7 hover:bg-secondary",
-                activeButton.state >= 3 && `animate-blinkButton`,
+                "h-full flex-1 animate-blinkButton rounded-[8px] p-2 text-sm font-semibold uppercase leading-7 hover:bg-secondary",
                 {
-                  "text-primary-success": activeButton.state === 1,
+                  "text-primary-success":
+                    activeButton.state === 1 || activeButton.state === 3,
+                  "text-primary-error": activeButton.state === 4,
                   "bg-[#0f1012] hover:bg-[#0f1012]": activeButton.state === 2,
                   "bg-background-success hover:bg-background-success":
                     activeButton.state === 3,
