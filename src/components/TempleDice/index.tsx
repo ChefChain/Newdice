@@ -4,7 +4,7 @@ import { Card, CardContent } from "../ui/card";
 import DigitalWallet from "./DigitalWallet";
 import ScrollingBar from "../common/ScrollingBar";
 
-const ECommerce: React.FC = () => {
+const TempleDice: React.FC = () => {
   return (
     <>
       <div className="flex min-h-screen flex-col gap-2 bg-background">
@@ -36,4 +36,4 @@ const ECommerce: React.FC = () => {
   );
 };
 
-export default ECommerce;
+export default TempleDice;
