@@ -1,16 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
 import React from "react";
 import { Card, CardContent } from "../ui/card";
 import DigitalWallet from "./DigitalWallet";
-
-const MapOne = dynamic(() => import("@/components/Maps/MapOne"), {
-  ssr: false,
-});
-
-const ChartThree = dynamic(() => import("@/components/Charts/ChartThree"), {
-  ssr: false,
-});
 
 const ECommerce: React.FC = () => {
   return (
