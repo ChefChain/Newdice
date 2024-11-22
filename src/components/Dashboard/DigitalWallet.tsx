@@ -25,7 +25,10 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import AnimatedNumbers from "react-animated-numbers";
+import dynamic from "next/dynamic";
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 
 type Props = {};
 

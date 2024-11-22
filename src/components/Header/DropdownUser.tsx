@@ -6,7 +6,10 @@ import ClickOutside from "@/components/ClickOutside";
 import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "../ui/card";
-import AnimatedNumbers from "react-animated-numbers";
+import dynamic from "next/dynamic";
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
