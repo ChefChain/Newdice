@@ -58,7 +58,7 @@ const Switch = React.forwardRef<
         "transition-all duration-300 data-[state=checked]:-translate-x-6.5 data-[state=unchecked]:translate-x-1.5 data-[state=checked]:text-white data-[state=unchecked]:text-white",
       )}
     >
-      <span className="text-[15px]">{text}</span>
+      <span className="text-base">{text}</span>
     </SwitchPrimitives.SwitchThumb>
   </SwitchPrimitives.Root>
 ));

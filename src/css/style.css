@@ -5,6 +5,22 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    /* font-size: 14px; */
+  }
+
+  @media (max-width: 500px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    html {
+      font-size: 12px;
+    }
+  }
+
   body {
     @apply relative z-1 bg-whiten font-satoshi text-base font-normal text-body;
   }

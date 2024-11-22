@@ -6,8 +6,8 @@ import DigitalWallet from "./DigitalWallet";
 const ECommerce: React.FC = () => {
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-background">
-        <div className="h-[70vh] w-full">
+      <div className="flex min-h-screen flex-col gap-2 bg-background">
+        <div className="h-[30vh] w-full">
           <div className="relative h-full w-full">
             <iframe
               src="https://viewer.millicast.com?streamId=eFxcvk/myStreamName"
@@ -17,7 +17,7 @@ const ECommerce: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-8">
+        <div className="grid grid-cols-12 gap-8 p-4">
           <DigitalWallet />
           <Card className="col-span-12 rounded-[8px] lg:col-span-7">
             <CardContent className="px-4 py-3 text-sm">

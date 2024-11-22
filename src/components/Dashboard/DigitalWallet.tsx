@@ -166,20 +166,21 @@ function DigitalWallet({}: Props) {
   };
 
   return (
-    <Card className="col-span-12 min-h-[550px] lg:col-span-5">
+    <Card className="col-span-12 min-h-[350px] lg:col-span-5">
       {/* Announcement bar */}
       <Card className="flex gap-2 rounded-bl-none rounded-br-none !border-l-0 !border-r-0 !border-t-0 border-b-[1px]">
-        <div className="flex flex-1 items-center border-r-[1px] border-border-card px-4 py-2">
+        <div className="flex flex-1 items-center px-4 py-2">
           <span className="text-primary-success ">
             This is the announcement bar
           </span>
-          <span className="ml-2">$310.00</span>
         </div>
-        <div className="flex flex-col items-center justify-center border-l-[1px] border-border-card px-4 py-1.5 font-thin">
-          <span className="text-xs">WIN/LOSS</span>
-          <div className="flex items-center gap-1 text-primary-success ">
-            <TrendingUpIcon strokeWidth={1} />
-            <span>34.1%</span>
+        <div className="rounded-tr-[20px] border-l-[1px] border-border-card bg-[#121314] px-1 py-1">
+          <div className="flex flex-col items-center justify-center rounded-tr-[17px]  px-3 py-0.5 font-thin">
+            <span className="text-xs">WIN/LOSS</span>
+            <div className="flex items-center gap-1 text-primary-success ">
+              <TrendingUpIcon strokeWidth={1} />
+              <span>34.1%</span>
+            </div>
           </div>
         </div>
       </Card>
@@ -187,7 +188,7 @@ function DigitalWallet({}: Props) {
       {/* Wallet Info */}
       <div className="flex w-full items-start p-4">
         <div className="flex flex-1 flex-wrap gap-2">
-          <Card className="flex min-h-[46px] items-center gap-1 rounded-full border border-primary-success px-4 py-3">
+          <Card className="flex min-h-[40px] items-center gap-1 rounded-full border border-primary-success px-4 py-3">
             <span className="pl-2 text-xs font-medium leading-none text-primary-success">
               TABLE:
             </span>
@@ -216,7 +217,7 @@ function DigitalWallet({}: Props) {
           </Card>
           <Card className="flex min-h-[46px] items-center gap-2 rounded-full border border-primary-success px-4 py-3">
             <span className="text-xs font-medium leading-none text-primary-success">
-              PROGRESSIVE:
+              PROG:
             </span>
             <span className="text-xs">12,777$</span>
             {/* <Image src="assets/logo-btc.svg" width={25} height={25} alt="btc" /> */}
@@ -228,7 +229,7 @@ function DigitalWallet({}: Props) {
       </div>
 
       {/* Chart */}
-      <ResponsiveContainer width="100%" height={100}>
+      {/* <ResponsiveContainer width="100%" height={100}>
         <LineChart data={data}>
           <Line
             type="monotone"
@@ -238,7 +239,7 @@ function DigitalWallet({}: Props) {
             dot={false}
           />
         </LineChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer> */}
 
       {/* Dice */}
       <div className="m-4 flex h-[70px] items-center justify-center sm:h-[100px] md:h-[100px] lg:h-[80px] xl:h-[100px]">
@@ -246,7 +247,7 @@ function DigitalWallet({}: Props) {
           {[1, 2, 3, 4].map((key, index) => (
             <Card
               key={key}
-              className="flex h-[70px] select-none items-center justify-center rounded-md bg-transparent p-1.5 md:h-[100px] md:p-2.5 lg:h-[80px] xl:h-[100px]"
+              className="flex h-[70px] select-none items-center justify-center rounded-md bg-[#121314] p-1.5 md:h-[100px] md:p-2.5 lg:h-[80px] xl:h-[100px]"
               //   className="flex h-[70px] w-[70px] min-w-[70px] select-none items-center justify-center rounded-md bg-transparent p-1.5 md:h-[100px] md:w-[100px] md:min-w-[100px] md:p-2.5 lg:h-[80px] lg:w-[80px] lg:min-w-[80px] xl:h-[100px]  xl:w-[100px] xl:min-w-[100px]"
             >
               <div
@@ -328,7 +329,7 @@ function DigitalWallet({}: Props) {
       </div>
 
       {/* Bet Controls */}
-      <div className="m-4 mt-8 flex items-center justify-between gap-5 md:justify-end md:gap-10 lg:justify-between lg:gap-3">
+      <div className="mx-0 mt-6 flex items-center justify-end gap-5 rounded-bl-[20px] rounded-br-[20px] border-t-[1px] border-border-card bg-[#121314] px-4 py-4 md:gap-10 lg:gap-3">
         <div className="flex items-center justify-between gap-3 md:gap-6 lg:gap-3">
           <span className="flex-1 text-sm font-extralight tracking-[0.5px]">
             Progressive
